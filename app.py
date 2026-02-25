@@ -414,13 +414,12 @@ st.title("AI Product Listing Demo (Image + Simulated API)")
 st.caption("Simulates API import + Vision + Copywriting with strict validators.")
 
 # --- Demo URL entry (top of page) ---
-ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL, key="ali_url")
-st.markdown(f"[Open vendor page]({ali_url})")
+ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL, key="ali_url_input")
 
 c1, c2 = st.columns(2)
 if c1.button("Use demo URL"):
     st.session_state["ali_url"] = DEMO_VENDOR_URL
-    st.rerun()
+    st.session_state["ali_url_input"] = DEMO_VENDOR_URL
 
 if c2.button("Load from URL (simulated API)"):
     # Set the simulated API payload into session state (reliable demo, no scraping)
