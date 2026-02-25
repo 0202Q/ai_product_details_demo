@@ -418,12 +418,12 @@ ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL, key="ali_url
 st.markdown(f"[Open vendor page]({ali_url})")
 
 c1, c2 = st.columns(2)
-if c1.button("Use demo URL"):  
+
+if c1.button("Use demo URL"):
     st.session_state["ali_url_input"] = DEMO_VENDOR_URL
+    st.rerun()
 
 if c2.button("Load from URL (simulated API)"):
-    st.session_state["ali_url_input"] = DEMO_VENDOR_URL
-   if c2.button("Load from URL (simulated API)"):
     st.session_state["ali_url_input"] = DEMO_VENDOR_URL
 
     st.session_state["api_raw_title"] = DEMO_API_PAYLOAD["raw_title"]
