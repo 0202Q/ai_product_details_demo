@@ -422,9 +422,18 @@ if c1.button("Use demo URL"):
     st.session_state["ali_url_input"] = DEMO_VENDOR_URL
 
 if c2.button("Load from URL (simulated API)"):
-    if c2.button("Load from URL (simulated API)"):
-    # <-- add it here (first line inside the block)
-    ...
+    st.session_state["ali_url_input"] = DEMO_VENDOR_URL
+   if c2.button("Load from URL (simulated API)"):
+    st.session_state["ali_url_input"] = DEMO_VENDOR_URL
+
+    st.session_state["api_raw_title"] = DEMO_API_PAYLOAD["raw_title"]
+    st.session_state["api_vendor_color"] = DEMO_API_PAYLOAD["vendor_color"]
+    st.session_state["api_variants_text"] = DEMO_API_PAYLOAD["variants_text"]
+    st.session_state["api_size_chart_json"] = json.dumps(
+        DEMO_API_PAYLOAD["size_chart_json"], indent=2
+    )
+
+    st.rerun()
     # Set the simulated API payload into session state (reliable demo, no scraping)
     st.session_state["api_raw_title"] = DEMO_API_PAYLOAD["raw_title"]
     st.session_state["api_vendor_color"] = DEMO_API_PAYLOAD["vendor_color"]
