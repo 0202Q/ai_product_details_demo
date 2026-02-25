@@ -490,11 +490,11 @@ st.title("AI Product Listing Demo (Image + Fake API)")
 st.caption(
     "This prototype simulates API import + AI vision + AI copywriting with strict validators.")
 # ---- Demo URL entry (top of page) ----
-ali_url = st.text_input("Vendor URL (demo)", "")
+
 
 DEMO_VENDOR_URL = "https://www.aliexpress.us/item/3256810240290544.html"
 
-ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL)
+ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL, key="ali_url")
 st.markdown(f"[Open vendor page]({ali_url})")
 
 c1, c2 = st.columns(2)
