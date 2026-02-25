@@ -491,6 +491,28 @@ st.caption(
     "This prototype simulates API import + AI vision + AI copywriting with strict validators.")
 # ---- Demo URL entry (top of page) ----
 ali_url = st.text_input("Vendor URL (demo)", "")
+
+DEMO_VENDOR_URL = "https://www.aliexpress.us/item/3256810240290544.html"
+
+ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL)
+st.markdown(f"[Open vendor page]({ali_url})")
+
+c1, c2 = st.columns(2)
+if c1.button("Use demo URL"):
+    st.session_state["ali_url"] = DEMO_VENDOR_URL
+    st.rerun()
+
+if c2.button("Load from URL (simulated API)"):
+    st.session_state["api_title"] = "Solid Color Slim 2025 Autumn Elegant Trend Tight Long Sleeve Bodysuit Tops"
+    st.session_state["api_vendor_color"] = "BKK1196-1"
+    st.session_state["api_variants"] = (
+        "Color: BKK1196-1, Size: S\n"
+        "Color: BKK1196-1, Size: M\n"
+        "Color: BKK1196-1, Size: L\n"
+        "Color: BKK1196-1, Size: XL"
+    )
+    st.rerun()
+  
 if ali_url:
     st.markdown(f"[Open vendor page]({ali_url})")
 
