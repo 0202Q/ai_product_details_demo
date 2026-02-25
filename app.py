@@ -417,10 +417,22 @@ st.caption("Simulates API import + Vision + Copywriting with strict validators."
 ali_url = st.text_input("Vendor URL (demo)", value=DEMO_VENDOR_URL, key="ali_url_input")
 st.markdown(f"[Open vendor page]({ali_url})")
 
-c1, c2 = st.columns(2)
+# --- Demo URL entry (top of page) ---
+ali_url = st.text_input(
+    "Vendor URL (demo)",
+    value=DEMO_VENDOR_URL,
+    key="ali_url_input",
+)
+st.markdown(f"[Open vendor page]({ali_url})")
 
-if c1.button("Use demo URL"):
-    st.session_state["ali_url_input"] = DEMO_VENDOR_URL
+# Only one button now
+if st.button("Load from URL (simulated API)", key="load_sim_api"):
+    st.session_state["api_raw_title"] = DEMO_API_PAYLOAD["raw_title"]
+    st.session_state["api_vendor_color"] = DEMO_API_PAYLOAD["vendor_color"]
+    st.session_state["api_variants_text"] = DEMO_API_PAYLOAD["variants_text"]
+    st.session_state["api_size_chart_json"] = json.dumps(
+        DEMO_API_PAYLOAD["size_chart_json"], indent=2
+    )
     st.rerun()
 
 if c2.button("Load from URL (simulated API)"):
